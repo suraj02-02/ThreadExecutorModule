@@ -29,6 +29,9 @@ public class TaskAcceptor {
     public void executeTask(Runnable runnableTask){
 
         try{
+            if(runnableTask == null){
+                throw new NullPointerException("Invalid task submitted!");
+            }
             final Future<?> submit = executorService.submit(runnableTask);
             System.out.println("*********** Task Submitted ******** ");
             taskExecutionStatus(0);
